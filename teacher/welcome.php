@@ -14,17 +14,17 @@ if (!isset($_SESSION["email"])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome</title>
+  <title>Bienvenu</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h2>Welcome to the Website</h2>
-    <p>You are now logged in. Enjoy your stay!</p>
-    <a href="logout.php">Logout</a>
-    <a href="add_class.php">Add class</a>
-    <a href="my_classes.php">My Classes</a>
-    <a href="profile.php">Profile</a>
+    <h2>Bienvenu sur le site Web</h2>
+    <p>Vous êtes maintenant connecté!</p>
+    <a href="logout.php">Se déconnecter</a>
+    <a href="add_class.php">Ajouter Un Cours</a>
+    <a href="my_classes.php">Mes Cours</a>
+    <a href="profile.php">Profil</a>
   </div>
 </body>
 </html>

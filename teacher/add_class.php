@@ -21,10 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Insert new class into database
     $insert_sql = "INSERT INTO classes (class_name, teacher_id, description, key_words, pre_requirements) VALUES ('$class_name', '$teacher_id', '$description', '$keywords', '$pre_requirements')";
     if (mysqli_query($conn, $insert_sql)) {
-        echo "Class added successfully!";
+        echo "Cours ajouté avec succès!";
         header("Location: welcome.php");
     } else {
-        echo "Error adding class: " . mysqli_error($conn);
+        echo "Erreur lors de l'ajout du cours : " . mysqli_error($conn);
     }
 }
 
@@ -37,21 +37,21 @@ mysqli_close($conn);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add New Class</title>
+<title>Ajouter un nouveau cours</title>
 </head>
 <body>
-<h2>Add New Class</h2>
+<h2>Ajouter Un Nouveau Cours</h2>
 <form method="post" action="add_class.php">
-    <label for="class_name">Class Name:</label>
+    <label for="class_name">Intitulé Du Cours:</label>
     <input type="text" id="class_name" name="class_name" required><br><br>
 
     <label for="description">Description:</label><br>
     <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
 
-    <label for="keywords">Keywords:</label>
+    <label for="keywords">Mots Clés:</label>
     <input type="text" id="keywords" name="keywords"><br><br>
 
-    <label for="pre_requirements">Pre-Requirements:</label><br>
+    <label for="pre_requirements">Les Prérequis:</label><br>
     <textarea id="pre_requirements" name="pre_requirements" rows="4" cols="50"></textarea><br><br>
 
     <input type="submit" value="Add Class">

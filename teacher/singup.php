@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: welcome.php");
     exit();
   } else {
-    echo "Error: " . mysqli_error($conn);
+    echo "Erreur: " . mysqli_error($conn);
   }
 
   // Close database connection

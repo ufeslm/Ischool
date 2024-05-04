@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['class_id'])) {
 
     if ($class_result && mysqli_num_rows($class_result) > 0) {
         $class_row = mysqli_fetch_assoc($class_result);
-        echo "<h2>Students Enrolled in " . $class_row['class_name'] . "</h2>";
+        echo "<h2>Les étudiants inscrits à cette classe" . $class_row['class_name'] . "</h2>";
 
         // Fetch enrolled students for the class from database
         $enrolled_query = "SELECT students.id, students.firstName, students.lastName FROM enrollment INNER JOIN students ON enrollment.student_id = students.id WHERE enrollment.class_id = '$class_id'";
@@ -32,13 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['class_id'])) {
                 echo "<a href='student_details.php?student_id=" . $enrolled_row['id'] . "'>" . $enrolled_row['firstName'] . " " . $enrolled_row['lastName'] . "</a><br>";
             }
         } else {
-            echo "No students enrolled in this class.";
+            echo "Aucun élève inscrit dans cette classe.";
         }
     } else {
-        echo "Class not found or you don't have permission to view students in this class.";
+        echo "Classe introuvable ou vous n'êtes pas autorisé à voir les élèves de cette classe.";
     }
 } else {
-    echo "Invalid request.";
+    echo "Requête invalide.";
 }
 
 // Close database connection

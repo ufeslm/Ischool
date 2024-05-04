@@ -21,10 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['class_id']) && isset($
         header("Location: announcements.php?class_id=$class_id"); // Redirect to announcements page
         exit();
     } else {
-        echo "Error adding announcement: " . mysqli_error($conn);
+        echo "Erreur lors de l'ajout de l'annonce : " . mysqli_error($conn);
     }
 } else {
-    echo "Invalid request.";
+    echo "Requête invalide.";
 }
 
 // Close database connection
