@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: welcome.php");
     exit();
   } else {
-    echo "Invalid username/email or password.";
+    echo "E-mail ou mot de passe invalide..";
   }
 
   // Close database connection

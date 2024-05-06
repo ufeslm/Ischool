@@ -11,7 +11,7 @@ if (!isset($_SESSION['teacher_id'])) {
 include_once "connection.php";
 
 // Initialize class ID
-$class_id = $_GET['class_id']; 
+$class_id = $_GET['class_id'];
 
 
 
@@ -25,19 +25,19 @@ mysqli_close($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Chapter</title>
+    <title>Importer le chapitre</title>
 </head>
 <body>
-    <h2>Upload Chapter</h2>
+    <h2>Importer le chapitre</h2>
     <form action="upload_chapter.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="class_id" value="<?php echo $class_id; ?>">
-        <label for="chapter_name">Chapter Name:</label>
+        <label for="chapter_name">Intitulé Du Chapitre:</label>
         <input type="text" id="chapter_name" name="chapter_name" required><br><br>
-        
-        <label for="chapter_file">Upload PDF File:</label>
+
+        <label for="chapter_file">Importer Le PDF:</label>
         <input type="file" id="chapter_file" name="chapter_file" accept=".pdf" required><br><br>
-        
-        <input type="submit" value="Upload">
+
+        <input type="submit" value="Importer">
     </form>
 </body>
 </html>

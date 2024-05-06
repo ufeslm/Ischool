@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["chapter_file"]) && is
     // Check if the file is a PDF
     $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
     if (strtolower($file_ext) != "pdf") {
-        echo "Error: Only PDF files are allowed.";
+        echo "Erreur : seuls les fichiers PDF sont autorisés.";
         exit();
     }
 
@@ -32,16 +32,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["chapter_file"]) && is
         // Insert chapter information into the database
         $insert_query = "INSERT INTO chapters (class_id, chapter_name, file_path) VALUES ('$class_id', '$chapter_name', '$file_path')";
         if (mysqli_query($conn, $insert_query)) {
-            echo "Chapter uploaded successfully!";
             header("Location: preview_chapters.php?class_id=".$class_id);
         } else {
-            echo "Error uploading chapter: " . mysqli_error($conn);
+            echo "Erreur lors de l'importation du chapitre :" . mysqli_error($conn);
         }
     } else {
-        echo "Error uploading file.";
+        echo "Erreur lors de l'importation.";
     }
 } else {
-    echo "Invalid request.";
+    echo "Requête invalide.";
 }
 
 // Close database connection

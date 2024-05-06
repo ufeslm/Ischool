@@ -20,13 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['class_id'])) {
     $class_name = mysqli_fetch_assoc($class_result)['class_name'];
 
     if ($class_result && mysqli_num_rows($class_result) > 0) {
-        echo "<h2>Announcements for Class: " . $class_name . "</h2>";
+        echo "<h2>Annonces du cours: " . $class_name . "</h2>";
 
         // Display form to add new announcement
         echo "<form method='POST' action='add_announcement.php'>";
         echo "<input type='hidden' name='class_id' value='$class_id'>";
-        echo "<textarea name='announcement' placeholder='Write your announcement here...' required></textarea><br>";
-        echo "<input type='submit' value='Add Announcement'>";
+        echo "<textarea name='announcement' placeholder='Écrivez votre annonce ici...' required></textarea><br>";
+        echo "<input type='submit' value='Ajouter l'annonce'>";
         echo "</form>";
 
         // Check if form is submitted to add new announcement
@@ -36,9 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['class_id'])) {
             // Insert new announcement into database
             $insert_query = "INSERT INTO announcements (class_id, announcement) VALUES ('$class_id', '$announcement')";
             if (mysqli_query($conn, $insert_query)) {
-                echo "Announcement added successfully!";
+                echo "Annonce ajoutée avec succès!";
             } else {
-                echo "Error adding announcement: " . mysqli_error($conn);
+                echo "Erreur lors de l'ajout de l'annonce: " . mysqli_error($conn);
             }
         }
 
@@ -48,20 +48,20 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['class_id'])) {
 
         // Display existing announcements
         if ($announcements_result && mysqli_num_rows($announcements_result) > 0) {
-            echo "<h3>Existing Announcements:</h3>";
+            echo "<h3>Annonces existantes:</h3>";
             while ($announcement_row = mysqli_fetch_assoc($announcements_result)) {
-                echo "<p><strong>Posted on:</strong> " . $announcement_row['created_at'] . "</p>";
+                echo "<p><strong>Posté le:</strong> " . $announcement_row['created_at'] . "</p>";
                 echo "<p>" . $announcement_row['announcement'] . "</p>";
                 echo "<hr>";
             }
         } else {
-            echo "<p>No announcements yet.</p>";
+            echo "<p>Aucune annonce pour l'instant.</p>";
         }
     } else {
-        echo "Class not found or you don't have permission to view announcements for this class.";
-    }   
+        echo "Cours introuvable ou vous n'êtes pas autorisé à afficher les annonces de ce cours.";
+    }
 } else {
-    echo "Invalid request.";
+    echo "Requête invalide.";
 }
 
 // Close database connection

@@ -19,12 +19,12 @@ $classes_result = mysqli_query($conn, $classes_query);
 
 // Display classes as links
 if (mysqli_num_rows($classes_result) > 0) {
-    echo "<h2>Classes Created by You</h2>";
+    echo "<h2>Cours créés par vous</h2>";
     while ($class_row = mysqli_fetch_assoc($classes_result)) {
         echo "<a href='class_details.php?class_id=" . $class_row['id'] . "'>" . $class_row['class_name'] . "</a><br>";
     }
 } else {
-    echo "You have not created any classes yet.";
+    echo "Vous n'avez pas encore créé de cours.";
 }
 
 // Close database connection

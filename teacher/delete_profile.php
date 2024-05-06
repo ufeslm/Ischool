@@ -18,7 +18,7 @@ $insertResult = mysqli_query($conn, $insertQuery);
 if ($insertResult) {
     header("Location: index.html");
 } else {
-    echo "Error sending delete request.";
+    echo "Erreur lors de l'envoi de la demande de suppression.";
 }
 
 mysqli_close($conn);

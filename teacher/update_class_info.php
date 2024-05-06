@@ -34,12 +34,12 @@ if (isset($_GET['class_id'])) {
             // Update class information in the database
             $update_query = "UPDATE classes SET class_name = '$new_class_name', description = '$new_description', key_words = '$new_key_words', pre_requirements = '$new_pre_requirements' WHERE id = '$class_id'";
             if (mysqli_query($conn, $update_query)) {
-                echo "Class information updated successfully!";
+                echo "Les informations du cours ont été mises à jour avec succès!";
                 // Redirect to class details page or any other page as needed
                 header("Location: class_details.php?class_id=" . $class_id);
                 exit();
             } else {
-                echo "Error updating class information: " . mysqli_error($conn);
+                echo "Erreur lors de la mise à jour des informations du cours: " . mysqli_error($conn);
             }
         }
 
@@ -50,37 +50,37 @@ if (isset($_GET['class_id'])) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Update Class Information</title>
+            <title>Mettre à jour les informations du cours</title>
         </head>
         <body>
-            <h2>Update Class Information</h2>
+            <h2>Mettre à jour les informations du cours</h2>
             <form action="" method="post">
-                <label for="class_name">Class Name:</label>
+                <label for="class_name">Intitulé Du Cours:</label>
                 <input type="text" id="class_name" name="class_name" value="<?php echo $class_name; ?>" required><br><br>
-                
+
                 <label for="description">Description:</label><br>
                 <textarea id="description" name="description" rows="4" cols="50" required><?php echo $description; ?></textarea><br><br>
 
-                <label for="key_words">Key Words:</label>
+                <label for="key_words">Mots Clés:</label>
                 <input type="text" id="key_words" name="key_words" value="<?php echo $key_words; ?>" required><br><br>
 
-                <label for="pre_requirements">Pre-Requirements:</label><br>
+                <label for="pre_requirements">Les Prérequis:</label><br>
                 <textarea id="pre_requirements" name="pre_requirements" rows="4" cols="50" required><?php echo $pre_requirements; ?></textarea><br><br>
 
                 <!-- Add other input fields for updating class info as needed -->
 
-                <input type="submit" value="Update Class Information">
+                <input type="submit" value="Mettre à jour">
             </form>
         </body>
         </html>
         <?php
     } else {
-        echo "Class not found.";
+        echo "Cours Introuvable.";
     }
 
     // Close database connection
     mysqli_close($conn);
 } else {
-    echo "Invalid request.";
+    echo "Requête invalide.";
 }
 ?>

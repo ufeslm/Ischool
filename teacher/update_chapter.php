@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['chapter_id']) && isset
     // Check if the file is a PDF
     $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
     if (strtolower($file_ext) != "pdf") {
-        echo "Error: Only PDF files are allowed.";
+        echo "Erreur : seuls les fichiers PDF sont autorisés.";
         exit();
     }
 
@@ -32,13 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['chapter_id']) && isset
         // Update chapter information in the database
         $update_query = "UPDATE chapters SET chapter_name = '$new_chapter_name', file_path = '$file_path' WHERE id = '$chapter_id'";
         if (mysqli_query($conn, $update_query)) {
-            echo "Chapter updated successfully!";
+            echo "Chapitre importé avec succès!";
             header("Location: preview_chapters.php?class_id=".$class_id);
         } else {
-            echo "Error updating chapter: " . mysqli_error($conn);
+            echo "Erreur lors de l'importation du chapitre: " . mysqli_error($conn);
         }
     } else {
-        echo "Error uploading file.";
+        echo "Erreur lors de l'importation.";
     }
 } else {
     // Include HTML form if no form submission
@@ -48,20 +48,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['chapter_id']) && isset
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Update Chapter</title>
+        <title>Importer Un Chapitre</title>
     </head>
     <body>
-        <h2>Update Chapter</h2>
+        <h2>Importer Un Chapitre</h2>
         <form action="update_chapter.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="chapter_id" value="<?php echo $_GET['chapter_id']; ?>">
             <input type="hidden" name="class_id" value="<?php echo $_GET['class_id']; ?>"> <!-- Get chapter_id from URL -->
-            <label for="new_chapter_name">New Chapter Name:</label>
+            <label for="new_chapter_name">Intitulé Du Chapitre:</label>
             <input type="text" id="new_chapter_name" name="new_chapter_name" required><br><br>
-            
-            <label for="new_chapter_file">Upload New PDF File:</label>
+
+            <label for="new_chapter_file">Importer Un PDF:</label>
             <input type="file" id="new_chapter_file" name="new_chapter_file" accept=".pdf" required><br><br>
-            
-            <input type="submit" value="Update Chapter">
+
+            <input type="submit" value="Importer">
         </form>
     </body>
     </html>

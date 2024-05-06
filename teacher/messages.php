@@ -23,13 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['class_id'])) {
         echo "<h2>" . $class_row['class_name'] . "</h2>";
 
         // Link to Inbox and Sent Messages
-        echo "<a href='inbox.php?class_id=" . $class_row['id'] . "'>Inbox</a><br>";
-        echo "<a href='sent_messages.php?class_id=" . $class_row['id'] . "'>Sent Messages</a><br>";
+        echo "<a href='inbox.php?class_id=" . $class_row['id'] . "'>Boîte de réception</a><br>";
+        echo "<a href='sent_messages.php?class_id=" . $class_row['id'] . "'>Messages envoyés</a><br>";
     } else {
-        echo "Class not found or you don't have permission to view this class.";
-    }   
+        echo "Cours introuvable ou vous n'êtes pas autorisé à afficher ce cours.";
+    }
 } else {
-    echo "Invalid request.";
+    echo "Requête invalide.";
 }
 
 // Close database connection

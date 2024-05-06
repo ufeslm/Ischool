@@ -12,7 +12,7 @@ if (isset($_GET['class_id'])) {
 
     // Display chapters
     if (mysqli_num_rows($chapters_result) > 0) {
-        echo "<h2>Chapters</h2>";
+        echo "<h2>Chapitres</h2>";
         echo "<form action='update_chapter_visibility.php' method='post'>";
         echo "<div>";
         while ($chapter_row = mysqli_fetch_assoc($chapters_result)) {
@@ -25,29 +25,29 @@ if (isset($_GET['class_id'])) {
             {
                 echo "<h3>" . $chapter_row['chapter_name'] . " (hidden)</h3>";
             }
-            
-            echo "<a href='" . $chapter_row['file_path'] . "' target='_blank'>View PDF</a><br/>"; // Link to view PDF
+
+            echo "<a href='" . $chapter_row['file_path'] . "' target='_blank'>Afficher le PDF</a><br/>"; // Link to view PDF
             echo "<select name='visibility[" . $chapter_row['id'] . "]'>";
 
-            echo "<option value='0'>Show</option>"; // Default to show
-            echo "<option value='1'>Hide</option>";
+            echo "<option value='0'>Rendre Visible</option>"; // Default to show
+            echo "<option value='1'>Rendre Invisible</option>";
             echo "</select>";
             echo "<input type='hidden' name='class_id' value='" . $class_id . "'>"; // Hidden input for class ID
             echo "<input type='submit' value='Update'>";
-            echo "<a href='delete_chapter.php?chapter_id=" . $chapter_row['id'] . "&class_id=".$class_id."'>Delete</a><br>";
-            echo "<a href='update_chapter.php?chapter_id=" . $chapter_row['id'] . "&class_id=".$class_id."'>Update</a><br>";
+            echo "<a href='delete_chapter.php?chapter_id=" . $chapter_row['id'] . "&class_id=".$class_id."'>Supprimer</a><br>";
+            echo "<a href='update_chapter.php?chapter_id=" . $chapter_row['id'] . "&class_id=".$class_id."'>Modifier</a><br>";
             echo "</div>";
         }
         echo "</div>";
         echo "</form>";
     } else {
-        echo "No chapters available.";
+        echo "Aucun chapitre disponible.";
     }
 
     // Close database connection
     mysqli_close($conn);
 } else {
-    echo "Invalid request.";
+    echo "Requête invalide.";
 }
 ?>
 
