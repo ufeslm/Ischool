@@ -19,7 +19,7 @@ $enrolled_result = mysqli_query($conn, $enrolled_query);
 
 // Display enrolled classes as links
 if (mysqli_num_rows($enrolled_result) > 0) {
-    echo "<h2>Vos Classes Inscrites</h2>";
+    echo "<h2>Vos Cours</h2>";
     while ($enrolled_row = mysqli_fetch_assoc($enrolled_result)) {
         echo "<a href='class_details.php?class_id=" . $enrolled_row['id'] . "'>" . $enrolled_row['class_name'] . "</a><br>";
     }
