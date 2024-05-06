@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Update session email if email is changed
     $_SESSION["email"] = $newEmail;
   } else {
-    echo "Error updating profile.";
+    echo "Erreur lors de la mise à jour du profil.";
   }
 }
 
@@ -57,25 +57,25 @@ mysqli_close($conn);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Profile</title>
+  <title>Modifier Le Profil</title>
 </head>
 <body>
   <div class="container">
-    <h2>Edit Profile</h2>
+    <h2>Modifier Le Profil</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-      <label for="firstname">First Name:</label>
+      <label for="firstname">Prenom:</label>
       <input type="text" id="firstname" name="firstname" value="<?php echo $firstname; ?>" required><br>
 
-      <label for="lastname">Last Name:</label>
+      <label for="lastname">Nom:</label>
       <input type="text" id="lastname" name="lastname" value="<?php echo $lastname; ?>" required><br>
 
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" value="<?php echo $email; ?>" required><br>
 
-      <label for="password">Password:</label>
+      <label for="password">Mot de passe:</label>
       <input type="password" id="password" name="password" required><br>
 
-      <input type="submit" value="Update Profile">
+      <input type="submit" value="Modifier Le Profil">
     </form>
   </div>
 </body>

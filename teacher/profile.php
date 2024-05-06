@@ -29,7 +29,7 @@ if ($result && mysqli_num_rows($result) > 0) {
   // Close database connection
   mysqli_close($conn);
 } else {
-  echo "Error fetching user information.";
+  echo "Erreur lors de la récupération des informations utilisateur.";
   exit(); // Stop further execution if there's an error
 }
 ?>
@@ -39,20 +39,20 @@ if ($result && mysqli_num_rows($result) > 0) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile</title>
+  <title>Profil</title>
 </head>
 <body>
   <div class="container">
-    <h2>Profile Information</h2>
-    <p><strong>First Name:</strong> <?php echo $firstname; ?></p>
-    <p><strong>Last Name:</strong> <?php echo $lastname; ?></p>
+    <h2>Informations Du Profil</h2>
+    <p><strong>Prenom:</strong> <?php echo $firstname; ?></p>
+    <p><strong>Nom:</strong> <?php echo $lastname; ?></p>
     <p><strong>Email:</strong> <?php echo $email; ?></p>
-    <a href="edit_profile.php">Edit Profile</a>
+    <a href="edit_profile.php">Modifier le Profil</a>
     <?php
       if ($result1 && mysqli_num_rows($result1) > 0) {
-        echo "<p>Request already sent</p>";
+        echo "<p>Demande déjà envoyée</p>";
       } else {
-        echo "<a href='delete_profile.php'>Delete Profile</a>";
+        echo "<a href='delete_profile.php'>Supprimer le profil</a>";
       }
     ?>
   </div>

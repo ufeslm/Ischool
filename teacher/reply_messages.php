@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['class_id'], $_POST['re
     if (mysqli_query($conn, $insert_query)) {
         header("Location: messages.php?class_id=".$class_id);
     } else {
-        echo "Error sending reply: " . mysqli_error($conn);
+        echo "Erreur lors de l'envoi de la réponse : " . mysqli_error($conn);
     }
 }
 

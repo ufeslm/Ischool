@@ -8,42 +8,42 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Animated Login Page</title>
+    <title>Projet Web</title>
 </head>
 
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form action="singup.php" method="post">
-                <h1>Create Account</h1>
-                <input type="text" placeholder="First Name" name="firstname" required/>
-                <input type="text" placeholder="Last Name" name="lastname" required/>
+                <h1>Créer un compte</h1>
+                <input type="text" placeholder="Prenom" name="firstname" required/>
+                <input type="text" placeholder="Nom" name="lastname" required/>
                 <input type="email" placeholder="Email" name="email" required />
-                <input type="password" placeholder="Password" name="password" required/>
-                <button>Sign Up</button>
+                <input type="password" placeholder="Mot de passe" name="password" required/>
+                <button>S'inscrire</button>
             </form>
         </div>
         <div class="form-container sign-in">
             <form action="login.php" method="post">
-                <h1>Sign In</h1>
+                <h1>Se connecter</h1>
                 <input type="email" placeholder="Email" name="email" required/>
-                <input type="password" placeholder="Password" name="password" required/>
-                <button>Sign In</button>
+                <input type="password" placeholder="Mot de passe" name="password" required/>
+                <button>Se connecter</button>
             </form>
         </div>
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Enter your personal details to use all of site features</p>
-                    <button class="hidden" id="login">Sing In</button>
+                    <h1>Content de te revoir!</h1>
+                    <p>Entrez vos informations personnelles pour utiliser toutes les fonctionnalités du site</p>
+                    <button class="hidden" id="login">Se connecter</button>
                 </div>
                 <div class="toggle-panel toggle-right">
-                    <h1>Hello, Friend!</h1>
+                    <h1>Bonjour mon ami!</h1>
                     <p>
-                        Register with your personal details to use all of site features
+                        Inscrivez-vous avec vos informations personnelles pour utiliser toutes les fonctionnalités du site
                     </p>
-                    <button class="hidden" id="register">Sing Up</button>
+                    <button class="hidden" id="register">S'inscrire</button>
                 </div>
             </div>
         </div>

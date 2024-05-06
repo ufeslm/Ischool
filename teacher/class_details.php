@@ -22,21 +22,21 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['class_id'])) {
         $class_row = mysqli_fetch_assoc($class_result);
         echo "<h2>" . $class_row['class_name'] . "</h2>";
         echo "<p><strong>Description:</strong> " . $class_row['description'] . "</p>";
-        echo "<p><strong>Keywords:</strong> " . $class_row['key_words'] . "</p>";
-        echo "<p><strong>Prerequisites:</strong> " . $class_row['pre_requirements'] . "</p>";
+        echo "<p><strong>Mots Clés:</strong> " . $class_row['key_words'] . "</p>";
+        echo "<p><strong>Les Prérequis:</strong> " . $class_row['pre_requirements'] . "</p>";
 
         // Link to My Students page
-        echo "<a href='my_students.php?class_id=" . $class_row['id'] . "'>My Students</a><br>";
-        echo "<a href='teacher_upload_form.php?class_id=" . $class_row['id'] . "'>Upload New Chapter</a><br>";
-        echo "<a href='preview_chapters.php?class_id=" . $class_row['id'] . "'>Preview Chapters</a><br>";
-        echo "<a href='update_class_info.php?class_id=" . $class_row['id'] . "'>Update Class Info</a><br>";
-        echo "<a href='announcements.php?class_id=" . $class_row['id'] . "'>Announcements</a><br>";
+        echo "<a href='my_students.php?class_id=" . $class_row['id'] . "'>Mes étudiants</a><br>";
+        echo "<a href='teacher_upload_form.php?class_id=" . $class_row['id'] . "'>Importer un nouveau chapitre</a><br>";
+        echo "<a href='preview_chapters.php?class_id=" . $class_row['id'] . "'>Chapitres</a><br>";
+        echo "<a href='update_class_info.php?class_id=" . $class_row['id'] . "'>Modifier les informatios du cours</a><br>";
+        echo "<a href='announcements.php?class_id=" . $class_row['id'] . "'>Annonces</a><br>";
         echo "<a href='messages.php?class_id=" . $class_row['id'] . "'>Messages</a><br>";
     } else {
-        echo "Class not found or you don't have permission to view this class.";
-    }   
+        echo "Cours introuvable ou vous n'êtes pas autorisé à afficher ce cours.";
+    }
 } else {
-    echo "Invalid request.";
+    echo "Requête invalide.";
 }
 
 // Close database connection

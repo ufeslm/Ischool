@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['class_id'])) {
 
     if ($class_result && mysqli_num_rows($class_result) > 0) {
         $class_row = mysqli_fetch_assoc($class_result);
-        echo "<h2>Sent Messages</h2>";
+        echo "<h2>Les Messages Envoyés</h2>";
 
         // Fetch messages and replies for this class
         $messages_query = "SELECT m.m_id AS message_id, m.sent_at, m.message_content, s.firstname, s.lastname, r.reply_message, r.replied_at
@@ -33,25 +33,25 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['class_id'])) {
         if ($messages_result && mysqli_num_rows($messages_result) > 0) {
             while ($message_row = mysqli_fetch_assoc($messages_result)) {
                 echo "<div>";
-                echo "<p><strong>From:</strong> " . $message_row['firstname'] . " " . $message_row['lastname'] ."</p>";
-                echo "<p><strong>Sent:</strong> " . $message_row['sent_at'] . "</p>";
+                echo "<p><strong>De:</strong> " . $message_row['firstname'] . " " . $message_row['lastname'] ."</p>";
+                echo "<p><strong>Envoyé le:</strong> " . $message_row['sent_at'] . "</p>";
                 echo "<p><strong>Message:</strong> " . $message_row['message_content'] . "</p>";
                 if ($message_row['reply_message']) {
-                    echo "<p><strong>Teacher Reply:</strong> " . $message_row['reply_message'] . "</p>";
-                    echo "<p><strong>Reply Sent:</strong> " . $message_row['replied_at'] . "</p>";
+                    echo "<p><strong>Réponse du Professeur:</strong> " . $message_row['reply_message'] . "</p>";
+                    echo "<p><strong>Envoyé le:</strong> " . $message_row['replied_at'] . "</p>";
                 } else {
-                    echo "<p>No reply yet.</p>";
+                    echo "<p>Pas encore de réponse.</p>";
                 }
                 echo "</div>";
             }
         } else {
-            echo "<p>No messages with replies found.</p>";
+            echo "<p>Aucun message avec réponse trouvé.</p>";
         }
     } else {
-        echo "Class not found or you don't have permission to view this class.";
-    }   
+        echo "Classe introuvable ou vous n'êtes pas autorisé à voir les élèves de cette classe.";
+    }
 } else {
-    echo "Invalid request.";
+    echo "Requête invalide.";
 }
 
 // Close database connection

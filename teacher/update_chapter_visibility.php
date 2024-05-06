@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['visibility']) && isset
     header("Location: preview_chapters.php?class_id=".$class_id);
     exit();
 } else {
-    echo "Invalid request.";
+    echo "Requête invalide.";
 }
 
 // Close database connection

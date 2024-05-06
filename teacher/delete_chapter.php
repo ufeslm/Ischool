@@ -13,12 +13,12 @@ if (isset($_GET['chapter_id']) && isset($_GET["class_id"])) {
     if (mysqli_query($conn, $delete_query)) {
         header("Location: preview_chapters.php?class_id=".$class_id);
     } else {
-        echo "Error deleting chapter: " . mysqli_error($conn);
+        echo "Erreur lors de la suppression du chapitre: " . mysqli_error($conn);
     }
 
     // Close database connection
     mysqli_close($conn);
 } else {
-    echo "Invalid request.";
+    echo "Requête invalide.";
 }
 ?>
